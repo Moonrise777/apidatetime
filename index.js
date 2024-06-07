@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended : false }));
 app.use(bodyParser.json());
 app.use(express.static(process.cwd() + '/public/'));
 
-app.get('/datetime', (req, res) => {
+app.get('/', (req, res) => {
     const now = moment();
     const data = {
         date: now.format('YYYY-MM-DD'),

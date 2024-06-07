@@ -9,10 +9,14 @@ app.use(bodyParser.urlencoded({ extended : false }));
 app.use(bodyParser.json());
 app.use(express.static(process.cwd() + '/public/'));
 
+const time = require('moment-timezone');
+// Establecer la zona horaria
+time.tz.setDefault('America/Mexico_City');
+
 app.get('/datetime', (req, res) => {
     const now = moment();
     const data = {
-        date: now.format('YYYY-MM-DD'),
+        date: now.format('DD-MM-YYYY'),
         time: now.format('HH:mm:ss')
     };
     res.json(data);
